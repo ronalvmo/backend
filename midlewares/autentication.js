@@ -20,13 +20,16 @@ exports.verificaToken = function(req, res, next) {
             });
         }
 
-         /* return res.status(401).json({
+       
+        req.usuarioDB = decoded.usuarioDB;
+       
+
+/* 
+           return res.status(401).json({
             ok: true,
             decoded: decoded,
-            request: req.usuario
-        });  */ 
-        req.usuarioDB = decoded;
-       
+            request: req.usuarioDB
+        }); */   
         next();
 
     });
