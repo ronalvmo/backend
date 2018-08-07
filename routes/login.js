@@ -47,6 +47,7 @@ async function verify(token) {
 app.post('/google', async (req, res) => {
 
     var token = req.body.token;
+    
 
     var googleUser = await verify(token)
         .catch(err => {
@@ -133,7 +134,7 @@ app.post('/google', async (req, res) => {
 
 
 app.post('/', (req, res) => {
-
+    console.log(req.body);
     var body = req.body;
     Usuario.findOne({ email: body.email }, (error, usuarioDB) => {
         if (error) {
@@ -154,7 +155,7 @@ app.post('/', (req, res) => {
 
         if (!bcrypt.compareSync(body.password, usuarioDB.password)) {
             return res.status(400).json({
-                ok: false,
+                ok: false, 
                 mensaje: 'Credenciales incorrectas- password!',
                 Errors: error
             });
