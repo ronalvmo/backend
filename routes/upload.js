@@ -43,7 +43,7 @@ app.put('/:tipo/:id', (req, res, next) => {
     var extArchivo = splitArchivo[splitArchivo.length - 1];
 
     //validacion de extensiones
-    var extensionesValidas = ['png', 'jpg', 'gif', 'jpeg'];
+    var extensionesValidas = ['png', 'jpg', 'gif', 'jpeg','ico'];
 
     if (extensionesValidas.indexOf(extArchivo) < 0) {
         return res.status(400).json({
